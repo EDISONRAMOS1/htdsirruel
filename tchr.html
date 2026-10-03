@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teacher's Day Landing Page</title>
+  <!-- Google Fonts for a clean modern look -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #f7f9f8;
+      color: #2b2b2b;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .landing-container {
+      background-color: #ffffff;
+      width: 100%;
+      max-width: 1100px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      overflow: hidden;
+      border: 2px solid #2b2b2b;
+      padding: 40px;
+    }
+
+    /* Navigation Bar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #2b2b2b;
+      padding-bottom: 20px;
+      margin-bottom: 40px;
+      min-height: 40px;
+    }
+
+    /* Hero Section */
+    .hero-wrapper {
+      margin-bottom: 30px;
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: #555;
+      margin-bottom: 8px;
+    }
+
+    .hero-title {
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      line-height: 1.1;
+    }
+
+    .title-teacher {
+      color: #3b9b7a; /* Brighter, vibrant mint/teal neutral */
+      text-shadow: 2px 2px 0px #2b2b2b;
+    }
+
+    .title-day {
+      color: #e09f3e; /* Brighter, vibrant warm amber neutral */
+      text-shadow: 2px 2px 0px #2b2b2b;
+    }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr 1fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .hero-text p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    .hero-image-box {
+      border: 2px solid #2b2b2b;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 5px 5px 0px #2b2b2b;
+      background: #eee;
+    }
+
+    .hero-image-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+    }
+
+    .hero-right h2 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .login-btn {
+      display: inline-block;
+      padding: 12px 40px;
+      border: 2px solid #2b2b2b;
+      border-radius: 8px;
+      text-decoration: none;
+      color: #2b2b2b;
+      font-weight: 700;
+      letter-spacing: 1px;
+      box-shadow: 3px 3px 0px #2b2b2b;
+      transition: transform 0.1s, box-shadow 0.1s;
+      background-color: #f4d35e; /* Bright, cheerful neutral yellow accent */
+      cursor: pointer;
+    }
+
+    .login-btn:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 5px 5px 0px #2b2b2b;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .hero-content {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="landing-container">
+    <!-- Navbar with horizontal line kept -->
+    <nav>
+      <!-- Logo removed entirely -->
+    </nav>
+
+    <!-- Hero Wrapper with Smaller Text Above -->
+    <div class="hero-wrapper">
+      <div class="hero-subtitle">SIR RUEL,</div>
+      <h1 class="hero-title">
+        <span class="title-teacher">Happy</span> <span class="title-day">Teacher's Day!</span>
+      </h1>
+    </div>
+
+    <!-- Content Grid -->
+    <div class="hero-content">
+      <!-- Left Column: Description -->
+      <div class="hero-text">
+        <p>Kapag may nakita kang teacher na may salamin, blue markers, at laptop na may alon, siya ang the one and only Sir Ruel! Kahit pang CETs na ang dating ng mga quizzes at PTs, hindi maikakaila na napakagaling niya magturo. Thank you for teaching us and for being PATIENT with us everyday (all caps intended). Lovelots, Sir Ruel!</p>
+      </div>
+
+      <!-- Center Column: Image Placeholder -->
+      <div class="hero-image-box">
+        <img src="sirruel.gif" alt="Teacher Animation">
+      </div>
+
+      <!-- Right Column: Subtext & Action Button -->
+      <div class="hero-right">
+        <h2>Ang Pang-UPCAT na Quizzes ng General Math</h2>
+        <a href="#" id="celebrateBtn" class="login-btn">Click for Confetti!</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var random = Math.random
+      , cos = Math.cos
+      , sin = Math.sin
+      , PI = Math.PI
+      , PI2 = PI * 2
+      , timer = undefined
+      , frame = undefined
+      , confetti = [];
+
+    var particles = 10
+      , spread = 40
+      , sizeMin = 3
+      , sizeMax = 12 - sizeMin
+      , eccentricity = 10
+      , deviation = 100
+      , dxThetaMin = -.1
+      , dxThetaMax = -dxThetaMin - dxThetaMin
+      , dyMin = .13
+      , dyMax = .18
+      , dThetaMin = .4
+      , dThetaMax = .7 - dThetaMin;
+
+    var colorThemes = [
+      function() {
+        return color(200 * random()|0, 200 * random()|0, 200 * random()|0);
+      }, function() {
+        var black = 200 * random()|0; return color(200, black, black);
+      }, function() {
+        var black = 200 * random()|0; return color(black, 200, black);
+      }, function() {
+        var black = 200 * random()|0; return color(black, black, 200);
+      }, function() {
+        return color(200, 100, 200 * random()|0);
+      }, function() {
+        return color(200 * random()|0, 200, 200);
+      }, function() {
+        var black = 256 * random()|0; return color(black, black, black);
+      }, function() {
+        return colorThemes[random() < .5 ? 1 : 2]();
+      }, function() {
+        return colorThemes[random() < .5 ? 3 : 5]();
+      }, function() {
+        return colorThemes[random() < .5 ? 2 : 4]();
+      }
+    ];
+    function color(r, g, b) {
+      return 'rgb(' + r + ',' + g + ',' + b + ')';
+    }
+
+    function interpolation(a, b, t) {
+      return (1-cos(PI*t))/2 * (b-a) + a;
+    }
+
+    var radius = 1/eccentricity, radius2 = radius+radius;
+    function createPoisson() {
+      var domain = [radius, 1-radius], measure = 1-radius2, spline = [0, 1];
+      while (measure) {
+        var dart = measure * random(), i, l, interval, a, b, c, d;
+
+        for (i = 0, l = domain.length, measure = 0; i < l; i += 2) {
+          a = domain[i], b = domain[i+1], interval = b-a;
+          if (dart < measure+interval) {
+            spline.push(dart += a-measure);
+            break;
+          }
+          measure += interval;
+        }
+        c = dart-radius, d = dart+radius;
+
+        for (i = domain.length-1; i > 0; i -= 2) {
+          l = i-1, a = domain[l], b = domain[i];
+          if (a >= c && a < d)
+            if (b > d) domain[l] = d;
+            else domain.splice(l, 2);
+          else if (a < c && b > c)
+            if (b <= d) domain[i] = c;
+            else domain.splice(i, 0, c, d);
+        }
+
+        for (i = 0, l = domain.length, measure = 0; i < l; i += 2)
+          measure += domain[i+1]-domain[i];
+      }
+
+      return spline.sort();
+    }
+
+    var container = document.createElement('div');
+    container.style.position = 'fixed';
+    container.style.top      = '0';
+    container.style.left     = '0';
+    container.style.width    = '100%';
+    container.style.height   = '0';
+    container.style.overflow = 'visible';
+    container.style.zIndex   = '9999';
+
+    function Confetto(theme) {
+      this.frame = 0;
+      this.outer = document.createElement('div');
+      this.inner = document.createElement('div');
+      this.outer.appendChild(this.inner);
+
+      var outerStyle = this.outer.style, innerStyle = this.inner.style;
+      outerStyle.position = 'absolute';
+      outerStyle.width  = (sizeMin + sizeMax * random()) + 'px';
+      outerStyle.height = (sizeMin + sizeMax * random()) + 'px';
+      innerStyle.width  = '100%';
+      innerStyle.height = '100%';
+      innerStyle.backgroundColor = theme();
+
+      outerStyle.perspective = '50px';
+      outerStyle.transform = 'rotate(' + (360 * random()) + 'deg)';
+      this.axis = 'rotate3D(' +
+        cos(360 * random()) + ',' +
+        cos(360 * random()) + ',0,';
+      this.theta = 360 * random();
+      this.dTheta = dThetaMin + dThetaMax * random();
+      innerStyle.transform = this.axis + this.theta + 'deg)';
+
+      this.x = window.innerWidth * random();
+      this.y = -deviation;
+      this.dx = sin(dxThetaMin + dxThetaMax * random());
+      this.dy = dyMin + dyMax * random();
+      outerStyle.left = this.x + 'px';
+      outerStyle.top  = this.y + 'px';
+
+      this.splineX = createPoisson();
+      this.splineY = [];
+      for (var i = 1, l = this.splineX.length-1; i < l; ++i)
+        this.splineY[i] = deviation * random();
+      this.splineY[0] = this.splineY[l] = deviation * random();
+
+      this.update = function(height, delta) {
+        this.frame += delta;
+        this.x += this.dx * delta;
+        this.y += this.dy * delta;
+        this.theta += this.dTheta * delta;
+
+        var phi = this.frame % 7777 / 7777, i = 0, j = 1;
+        while (phi >= this.splineX[j]) i = j++;
+        var rho = interpolation(
+          this.splineY[i],
+          this.splineY[j],
+          (phi-this.splineX[i]) / (this.splineX[j]-this.splineX[i])
+        );
+        phi *= PI2;
+
+        outerStyle.left = this.x + rho * cos(phi) + 'px';
+        outerStyle.top  = this.y + rho * sin(phi) + 'px';
+        innerStyle.transform = this.axis + this.theta + 'deg)';
+        return this.y > height+deviation;
+      };
+    }
+
+    function poof() {
+      if (!frame) {
+        document.body.appendChild(container);
+
+        var theme = colorThemes[0];
+        (function addConfetto() {
+          var confetto = new Confetto(theme);
+          confetti.push(confetto);
+          container.appendChild(confetto.outer);
+          timer = setTimeout(addConfetto, spread * random());
+        })(0);
+
+        var prev = undefined;
+        requestAnimationFrame(function loop(timestamp) {
+          var delta = prev ? timestamp - prev : 0;
+          prev = timestamp;
+          var height = window.innerHeight;
+
+          for (var i = confetti.length-1; i >= 0; --i) {
+            if (confetti[i].update(height, delta)) {
+              container.removeChild(confetti[i].outer);
+              confetti.splice(i, 1);
+            }
+          }
+
+          if (timer || confetti.length)
+            return frame = requestAnimationFrame(loop);
+
+          document.body.removeChild(container);
+          frame = undefined;
+        });
+      }
+    }
+
+    // Attach poof function to the celebrate button click event
+    document.getElementById('celebrateBtn').addEventListener('click', function(e) {
+      e.preventDefault();
+      poof();
+    });
+  </script>
+</body>
+</html>
